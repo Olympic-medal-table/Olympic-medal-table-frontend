@@ -19,13 +19,13 @@ function Home(){
             <div className="ranking-paises">
                 {paises.map((pais) => {
                     return (
-                        <div key={pais.codigo}>
-                            <h2>{pais.nome}</h2>
+                        <div key={pais.codigoPais}>
+                            <h2>{pais.nomePais}</h2>
                             <h3>Total de medalhas: {pais.quantidadeMedalhasTotais}</h3>
                             <h3>Medalhas de ouro: {pais.quantidadeMedalhasOuro}</h3>
                             <h3>Medalhas de prata: {pais.quantidadeMedalhasPrata}</h3>
                             <h3>Medalhas de bronze: {pais.quantidadeMedalhasBronze} </h3>
-                            <Link to={`/pais/${pais.codigo}`}>Detalhar medalhas do país</Link>
+                            <Link to={`/pais/codigo/${pais.codigoPais}`}>Detalhar medalhas do país</Link>
                         </div>
                     );
                 })}

@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import api from "../API"
 
 function Pais(){
-    const{codigo}=useParams()
+    const{codigoPais}=useParams()
     const [pais, setPais] = useState({})
     const [loading, setLoading] = useState(true);
     const history = useNavigate()
@@ -13,18 +13,18 @@ function Pais(){
     }, []);
 
     const loadPais = async () => {
-        const response = await api.get('pais/' + codigo);
-        // o [0] abaixo é necessário porque o response.data é um Array com apenas um elemento,
-        // então é necessário acessar esse elemento através do índice, que é 0
-        setPais(response.data[0]);
+        const response = await api.get('pais/codigo/' + codigoPais);
+        
+        console.log(response.data);
+        setPais(response.data);
         
     }
 
     return(
         <div>
-            <h1> {pais.nome} </h1>
-            <h3>Medalhas: {pais.medalhas}</h3>
-            <h3>Seguidores: {pais.usuarios}</h3>
+            <h1> {pais.nomePais} </h1>
+            <h3>Medalhas: em breve, listagem de medalhas aqui</h3>
+            
         </div>
     );
 

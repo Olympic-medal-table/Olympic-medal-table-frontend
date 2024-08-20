@@ -9,7 +9,7 @@ function Rotas() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/pais/:codigo" element={<Pais />}/>
+                <Route path="/pais/codigo/:codigoPais" element={<Pais />}/>
             </Routes>
         </BrowserRouter>
     )
