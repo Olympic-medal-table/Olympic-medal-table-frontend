@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom"
 import api from "../API"
+import "./home.css"
+
 
 import { useEffect, useState } from "react"
 
@@ -15,21 +17,32 @@ function Home(){
     }, [])
 
     return (
-        <div className="container">
-            <div className="ranking-paises">
-                {paises.map((pais) => {
-                    return (
-                        <div key={pais.codigoPais}>
-                            <h2>{pais.nomePais}</h2>
-                            <h3>Total de medalhas: {pais.quantidadeMedalhasTotais}</h3>
-                            <h3>Medalhas de ouro: {pais.quantidadeMedalhasOuro}</h3>
-                            <h3>Medalhas de prata: {pais.quantidadeMedalhasPrata}</h3>
-                            <h3>Medalhas de bronze: {pais.quantidadeMedalhasBronze} </h3>
-                            <Link to={`/pais/codigo/${pais.codigoPais}`}>Detalhar medalhas do país</Link>
-                        </div>
-                    );
-                })}
-            </div>
+        <div class="ptable">
+            <h1 class="headin">Ranking de Medalhas</h1>
+                <table >
+                    <tr class="col">
+                        <th>#</th>
+                        <th>País</th>
+                        <th>Ouro</th>
+                        <th>Prata</th>
+                        <th>Bronze</th>
+                        <th>Total</th>
+                        <th></th>							             
+                    </tr>
+                    {paises.map((pais) => {
+                        return (                            
+                                <tr class="wpos" key={pais.codigoPais}>
+                                    <td>{paises.indexOf(pais)+1}</td>
+                                    <td>{pais.nomePais}</td>                                
+                                    <td>{pais.quantidadeMedalhasOuro}</td>
+                                    <td>{pais.quantidadeMedalhasPrata}</td>
+                                    <td>{pais.quantidadeMedalhasBronze} </td>
+                                    <td>{pais.quantidadeMedalhasTotais}</td>
+                                    <td><Link to={`/pais/codigo/${pais.codigoPais}`}>Detalhar</Link></td>
+                                </tr>                            
+                        );
+                    })}
+                </table>
         </div>
     )
 
