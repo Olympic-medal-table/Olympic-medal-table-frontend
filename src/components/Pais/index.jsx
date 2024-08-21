@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../API"
+import Medalha from "../Medalha/indes";
 
 function Pais(){
     const{codigoPais}=useParams()
@@ -23,8 +24,8 @@ function Pais(){
     return(
         <div>
             <h1> {pais.nomePais} </h1>
-            <h3>Medalhas: em breve, listagem de medalhas aqui</h3>
-            
+            <h3>Medalhas:</h3>
+            <Medalha />
         </div>
     );
 
