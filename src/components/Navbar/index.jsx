@@ -1,29 +1,29 @@
-import React from 'react'
+import React from 'react';
+import styles from './Navbar.module.css';
 
 export default function Navbar() {
   return (
-      <div>
+    <div>
+      <nav className={`${styles.navbar} ${styles.navbarExpandLg} ${styles.fixedTop} ${styles.navbarDark} ${styles.bgPrimary}`}>
+        <div className={styles.containerFluid}>
+          <a className={styles.navbarBrand} href="#">
+            Olympic Medal Table
+          </a>
+          <button
+            className={styles.navbarToggler}
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className={styles.navbarTogglerIcon}></span>
+          </button>
 
-          <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-              <div className="container-fluid">
-                    <a className="navbar-brand" href="#">
-                        Olympic Medal Table
-                    </a>
-                    <button className="navbar-toggler"
-                    type="button" 
-                    data-bs-toggle="collapse" 
-                    data-bs-target="#navbarSupportedContent" 
-                    aria-controls="navbarSupportedContent" 
-                    aria-expanded="false" 
-                    aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-
-                    <button className="btn btn-outline-light">Entrar</button>
-
-              </div>
-        </nav>
-
+          <button className={`${styles.btnCustom} ${styles.btnOutlineLight}`}>Entrar</button>
+        </div>
+      </nav>
     </div>
-  )
+  );
 }

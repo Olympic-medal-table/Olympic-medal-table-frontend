@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import api from "../API"
-import "./home.css"
+import classes from './home.module.css'
 
 
 import { useEffect, useState } from "react"
@@ -17,10 +17,10 @@ function Home(){
     }, [])
 
     return (
-        <div class="ptable">
-            <h1 class="headin">Ranking de Medalhas</h1>
+        <div className={`${classes.ptable}`}>
+            <h1 className={`${classes.headin}`}>Ranking de Medalhas</h1>
                 <table >
-                    <tr class="col">
+                    <tr className={`${classes.col}`}>
                         <th>#</th>
                         <th>País</th>
                         <th>Ouro</th>
@@ -31,7 +31,7 @@ function Home(){
                     </tr>
                     {paises.map((pais) => {
                         return (                            
-                                <tr class="wpos" key={pais.codigoPais}>
+                                <tr className={`${classes.wpos}`} key={pais.codigoPais}>
                                     <td>{paises.indexOf(pais)+1}</td>
                                     <td>{pais.nomePais}</td>                                
                                     <td>{pais.quantidadeMedalhasOuro}</td>
