@@ -1,13 +1,13 @@
 *{
-	font-family: Fjalla One;
+	font-family: Fjalla One,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   	margin: 0;
 	border: 0;
 	padding: 0;
-	color: black;
+	color: black
 }
 
 body{
-	padding-top: 56px;
+	padding-top: 3%;
 }
 
 html{
@@ -36,13 +36,12 @@ th, td {
 th{
 	background-color: #1e90ff;
 	color: #ffe221;
+	font-size: larger;
 }
 .button {
-	width: 180x;
 	height: 45px;
     background-color: blue;
     border: none;
-    padding: 0;
     cursor: pointer;
 	border-radius: 15%;
 	padding: 0 10px 0 10px;
@@ -60,6 +59,7 @@ th{
     color: #000000; /* Cor do link quando estiver em foco ou sendo clicado */
 }
 .headin{
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	text-align: center;
 	text-decoration: none;
 	color: #ffe221;
@@ -69,10 +69,6 @@ th{
 
 .wpos{
 	text-align: center;
-}
-
-.wpos td{
-	color: var(--cinza);
 }
 
 .pos{
