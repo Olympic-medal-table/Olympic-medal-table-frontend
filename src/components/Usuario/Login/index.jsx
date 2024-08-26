@@ -28,7 +28,8 @@ export default function LoginUsuario() {
         try {
             const response = await api.post("/login", usuario);
             const { token } = response.data;
-            localStorage.setItem('token', token); // Armazena o token no localStorage
+            localStorage.setItem('token', token);
+            window.location.href = '/';
             alert('Login bem-sucedido!');
         } catch (error) {
             console.error("Erro ao fazer login", error);
