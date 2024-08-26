@@ -2,7 +2,8 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../API";
-import Medalha from "../Medalha";
+import Medalha from './medalhacomponent';
+
 
 function Pais(){
     const{codigoPais}=useParams()
