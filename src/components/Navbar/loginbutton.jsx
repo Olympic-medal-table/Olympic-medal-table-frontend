@@ -7,13 +7,13 @@ export default function Loginbutton() {
     const navigate = useNavigate();
 
   return (
-    <button 
+      <button 
           className={`${styles.btnLoginCustom} ${styles.btnOutlineLight}`}
           onClick={() => {
             navigate("/login");
           }}
           >
-            Entrar
-          </button>
+          Entrar
+      </button>
   )
 }
