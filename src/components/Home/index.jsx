@@ -1,17 +1,16 @@
-import { Link } from "react-router-dom"
-import api from "../API"
-import classes from './home.module.css'
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import api from "../API";
+import classes from './home.module.css';
 
-
-import { useEffect, useState } from "react"
 
 function Home(){
     const [paises, setPaises] = useState([])
     useEffect(() => {
         async function loadPaises() {
-            let response = await api.get('/pais')
-            console.log(response.data.content);
-            setPaises(response.data.content) 
+            let response = await api.get('/pais?size=100')
+                console.log(response.data.content);
+                setPaises(response.data.content) 
         }
         loadPaises();
     }, [])
