@@ -25,7 +25,15 @@ export default function LoginUsuario() {
     const onSubmit = async (e) => {
         //evita que os dados digitados pelo usuário sejam passados para a url
         e.preventDefault();
-        await api.post("/login", usuario);
+        try {
+            const response = await api.post("/login", usuario);
+            const { token } = response.data;
+            localStorage.setItem('token', token); // Armazena o token no localStorage
+            alert('Login bem-sucedido!');
+        } catch (error) {
+            console.error("Erro ao fazer login", error);
+            alert('Erro ao fazer login. Verifique suas credenciais.');
+        }
     };
 
 
