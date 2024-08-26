@@ -33,7 +33,7 @@ export default function Navbar() {
           <button 
           className={`${styles.btnCustom} ${styles.btnOutlineLight}`}
           onClick={() => {
-            navigate("/");
+            navigate("/login");
           }}
           >
             Entrar
