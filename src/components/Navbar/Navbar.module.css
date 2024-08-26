@@ -63,7 +63,16 @@
     border-radius: 0.25rem;
   }
 
-  .btnCustom {
+  .btnLoginCustom {
+    background-color: #28a745; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remover a borda, se desejar */
+    padding: 0.5rem 1rem; /* Ajuste de padding */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Adicionar um ponteiro ao passar o mouse */
+  }
+
+  .btnLogoutCustom {
     background-color: #28a745; /* Cor de fundo do botão */
     color: white; /* Cor do texto do botão */
     border: none; /* Remover a borda, se desejar */

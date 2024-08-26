@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './Navbar.module.css';
-import { useNavigate } from 'react-router-dom';
+
 import Home from '../Home';
+import Loginbutton from './loginbutton';
 
 export default function Navbar() {
 
-  const navigate = useNavigate();
+  
 
   return (
     <div>
@@ -30,14 +31,8 @@ export default function Navbar() {
             <span className={styles.navbarTogglerIcon}></span>
           </button>
 
-          <button 
-          className={`${styles.btnCustom} ${styles.btnOutlineLight}`}
-          onClick={() => {
-            navigate("/login");
-          }}
-          >
-            Entrar
-          </button>
+          <Loginbutton />
+
         </div>
       </nav>
     </div>
