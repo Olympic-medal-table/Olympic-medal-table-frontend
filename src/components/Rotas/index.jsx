@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import Pais from "../Pais";
 import Navbar from "../Navbar";
 import CadastroUsuario from "../Usuario/Cadastro";
+import LoginUsuario from "../Usuario/Login";
 
 
 function Rotas() {
@@ -15,6 +16,7 @@ function Rotas() {
                 <Route path="/" element={ <Home />} />
                 <Route path="/pais/codigo/:codigoPais" element={<Pais />}/>
                 <Route path="/usuario" element={<CadastroUsuario />} />
+                <Route path="/login" element={<LoginUsuario />} />
             </Routes>
         </BrowserRouter>
     )
