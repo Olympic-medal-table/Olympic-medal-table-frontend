@@ -38,7 +38,11 @@ function Home(){
                                     <td>{pais.quantidadeMedalhasPrata}</td>
                                     <td>{pais.quantidadeMedalhasBronze} </td>
                                     <td>{pais.quantidadeMedalhasTotais}</td>
-                                    <td><Link to={`/pais/codigo/${pais.codigoPais}`}>Detalhar</Link></td>
+                                    <td>
+                                        <button className={classes.button} >
+                                            <Link to={`/pais/codigo/${pais.codigoPais}`} className={classes.link}>Detalhar</Link>
+                                        </button>
+                                    </td>
                                 </tr>                            
                         );
                     })}
