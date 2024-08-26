@@ -3,10 +3,11 @@ import styles from './Navbar.module.css';
 
 import Home from '../Home';
 import Loginbutton from './loginbutton';
+import Logoutbutton from './logoutbutton';
 
 export default function Navbar() {
 
-  
+  const token = localStorage.getItem('token');
 
   return (
     <div>
@@ -31,7 +32,7 @@ export default function Navbar() {
             <span className={styles.navbarTogglerIcon}></span>
           </button>
 
-          <Loginbutton />
+          {token ? <Logoutbutton /> : <Loginbutton />}
 
         </div>
       </nav>
