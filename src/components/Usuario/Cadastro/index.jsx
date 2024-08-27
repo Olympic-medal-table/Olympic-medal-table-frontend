@@ -10,11 +10,7 @@ import api from '../../API';
 
 export default function CadastroUsuario() {
 
-    const defaultRoles = [
-        {
-            id: 1,
-            nome: "ADMIN"
-        },
+    const defaultRoles = [        
         {
             id: 2,
             nome: "USER"
