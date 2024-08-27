@@ -8,7 +8,7 @@ A interface do usuário é composta pelos seguintes páginas e componentes:
 
 <h1>Navbar</h1>
 
-É um componente comum a todas as páginas que podem ser acessadas pelo usuário. Toda a extensão de sua área é clicável, e o clique direciona o usuário à página `Home`, descrita na próxima seção. Há ainda, no canto direito, um botão que é apresentado de maneira diferente, a depender do estado da aplicação: enquanto o usuário não efetuar o login, é apresentado um botão `Entrar`, que tem a cor verde é direciona o usuário para a página `Login`. Se o usuário estiver logado no sistema, é apresentado um botão `Sair`, que tem a cor vermelha e é responsável por encerrar a sessão do usuário e direcioná-lo à página inicial da aplicação.
+É um componente comum a todas as páginas que podem ser acessadas pelo usuário. Toda a extensão de sua área é clicável, e o clique direciona o usuário à página `Home`, descrita na próxima seção. Há ainda, no canto direito, um botão que é apresentado de maneira diferente, a depender do estado da aplicação: enquanto o usuário não efetuar o login, é apresentado um botão `Entrar`, que tem a cor verde é direciona o usuário para a página `Login`. Se o usuário estiver logado no sistema, é apresentado um botão `Sair`, que tem a cor vermelha e é responsável por encerrar a sessão do usuário e direcioná-lo à página inicial da aplicação. Há ainda, um botão que é apresentado condicionalmente, que é o `Cadastro de medalhas`. Esse botão só aparece para usuários administradores, e ao ser clicado, direciona o usuário administrador para a página de cadastro de medalhas (mais sobre isso nas próximas seções).
 
 <h1> Home </h1>
 
