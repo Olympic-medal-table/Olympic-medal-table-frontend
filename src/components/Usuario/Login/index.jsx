@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 import email_icon from '../../../assets/icons8-email-24.png';
 import password_icon from '../../../assets/icons8-password-24.png';
 
-import classes from './Login.module.css'
 import api from '../../API';
+import classes from './Login.module.css';
 
 
 export default function LoginUsuario() {
@@ -66,7 +66,6 @@ export default function LoginUsuario() {
                     </div>
                     <div className='submit-container'>
                         <button>Entrar</button>
-                        
                     </div>
                 </div>
             </form>

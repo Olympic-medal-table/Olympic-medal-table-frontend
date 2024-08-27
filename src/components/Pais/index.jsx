@@ -1,15 +1,14 @@
 import axios from 'axios';
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import api from "../API";
-import Medalha from './medalhacomponent';
-
+import Medalha from './MedalhasDePais/medalhacomponent';
+import './pais.css';
 
 function Pais(){
     const{codigoPais}=useParams()
     const [pais, setPais] = useState({})
     const [loading, setLoading] = useState(true);
-    const history = useNavigate()
     const token = localStorage.getItem('token');
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
@@ -49,10 +48,17 @@ function Pais(){
 
     return (
         <div>
-            <h1>{pais.nomePais}</h1>
-            <button onClick={seguirPais}>Seguir país</button>
-            <h3>Medalhas:</h3>
-            <Medalha />
+        <div className='container'>
+            <div id='#div1'>
+                <h1>{pais.nomePais}</h1>
+            </div>
+            <div id='#div2'>
+                <button onClick={seguirPais}>Seguir país</button>
+            </div>
+        </div>
+            <div>
+               <Medalha/>
+            </div>
         </div>
     );
 }

@@ -33,7 +33,7 @@ th, td {
 	background:#ff7b21;
 	width: 100%;
 }
-th{
+.table-home th{
 	background-color: #1e90ff;
 	color: #ffe221;
 	font-size: larger;
