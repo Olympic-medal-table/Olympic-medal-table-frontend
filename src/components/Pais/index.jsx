@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Swal from 'sweetalert2';
 import api from "../API";
 import Medalha from './MedalhasDePais/medalhacomponent';
 import './pais.css';
-
 function Pais(){
     const{codigoPais}=useParams()
     const [pais, setPais] = useState({})
@@ -38,7 +38,16 @@ function Pais(){
             alert(`Seguindo o país ${pais.nomePais}`);
         } catch (error) {
             console.error("Erro ao seguir país", error);
-            alert('Não foi possível seguir o país!');
+            // alert('Não foi possível seguir o país!');
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Você não pode seguir o país, pois não está logado no sistema!"
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  window.location.href = "/login";
+                }
+              });
         }
     };
 
