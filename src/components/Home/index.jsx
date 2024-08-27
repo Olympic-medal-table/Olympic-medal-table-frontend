@@ -8,7 +8,7 @@ function Home(){
     const [paises, setPaises] = useState([])
     useEffect(() => {
         async function loadPaises() {
-            let response = await api.get('/pais?size=100')
+            let response = await api.get('/pais/commedalha?size=100')
                 console.log(response.data.content);
                 setPaises(response.data.content) 
         }
