@@ -24,7 +24,9 @@ export default function Navbar() {
       console.log(response.data.roles[0].role);
       setRoles(response.data.roles)
     }
-    loadRoles();
+    if(token){
+      loadRoles();
+    }    
   }, [])
 
   const ehAdmin = roles.some(r =>{
