@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import email_icon from '../../../assets/icons8-email-24.png';
 import password_icon from '../../../assets/icons8-password-24.png';
-
 import api from '../../API';
 import classes from './Login.module.css';
 
 
 export default function LoginUsuario() {
-
+    const navigate = useNavigate();
     const [usuario, setUsuario] = useState({
         login:"",
         senha:"",
@@ -66,6 +65,9 @@ export default function LoginUsuario() {
                     </div>
                     <div className='submit-container'>
                         <button>Entrar</button>
+                    </div>
+                    <div className='submit-container'>
+                        <button onClick={() => { navigate("/usuario");}}>Cadastrar Usuário</button>
                     </div>
                 </div>
             </form>
