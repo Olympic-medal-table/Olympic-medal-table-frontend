@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import api from "../API";
 import * as style from './Medalhaendpoint.module.css';
 import Dropdownmedalha from "./Dropdownmedalha";
@@ -11,6 +12,8 @@ export default function Medalhaendpoint() {
         codigoPais: "",
         tipoMedalha: ""
     });
+    const token = localStorage.getItem('token');
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
     const { idEsporte, codigoPais, tipoMedalha } = medalha;
 
@@ -28,7 +31,11 @@ export default function Medalhaendpoint() {
 
     const handleSubmit = async () => {
         try {
-            const response = await api.post('/medalha', medalha);
+            const response = await api.post('/medalha', medalha,{
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
             console.log("Medalha enviada com sucesso:", response.data);
         } catch (error) {
             console.error("Erro ao enviar medalha:", error);
