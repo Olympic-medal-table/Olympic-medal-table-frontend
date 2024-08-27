@@ -1,65 +1,62 @@
 import React, { useState, useRef, useEffect } from "react";
-
 import api from "../API";
-import * as style from './Medalhaendpoint.module.css'
+import * as style from './Medalhaendpoint.module.css';
 
-export default function Dropdownpais() {
-    
-    const [paises, setPaises] = useState([])
-    
+export default function Dropdownpais({ onSelectPais }) {
+    const [paises, setPaises] = useState([]);
 
     useEffect(() => {
-      async function loadPaises() {
-          let response = await api.get('/pais?size=100')
-              console.log(response.data.content);
-              const sortedPaises = response.data.content.sort((a, b) => 
+        async function loadPaises() {
+            let response = await api.get('/pais?size=100');
+            const sortedPaises = response.data.content.sort((a, b) => 
                 a.nomePais.localeCompare(b.nomePais)
             );
-            setPaises(sortedPaises); 
-      }
-      loadPaises();
-  }, [])
+            setPaises(sortedPaises);
+        }
+        loadPaises();
+    }, []);
 
     const container = useRef();
     const [dropdownState, setDropdownState] = useState({ open: false });
-   
-    const handleDropdownClick = () =>
-    setDropdownState({ open: !dropdownState.open });
-   
+
+    const handleDropdownClick = () => setDropdownState({ open: !dropdownState.open });
+
     const handleClickOutside = (e) => {
-    if (container.current && !container.current.contains(e.target)) {
-    setDropdownState({ open: false });
-    }
+        if (container.current && !container.current.contains(e.target)) {
+            setDropdownState({ open: false });
+        }
     };
-   
-    // attaches an eventListener to listen when componentDidMount
+
     useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    // optionally returning a func in useEffect runs like componentWillUnmount to cleanup
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
-   
+
+    const handlePaisSelect = (codigoPais) => {
+        onSelectPais(codigoPais); // Passa o valor selecionado para o componente pai
+        setDropdownState({ open: false }); // Fecha o dropdown após a seleção
+    };
+
     return (
-    <div className={style.container} ref={container}>
-         <button
-    type="button"
-    className={style.button}
-    onClick={handleDropdownClick}
-    >
-           País
-         </button>
-    {dropdownState.open && ( 
-    <div className={style.dropdown}>
-             <ul>
-             {paises.map((pais) => {
-                return(
-                    <li key={pais.id}>{pais.nomePais}</li>
-                );                
-                })
-            }
-             </ul>
-           </div>
-         )}
-       </div>
+        <div className={style.container} ref={container}>
+            <button
+                type="button"
+                className={style.button}
+                onClick={handleDropdownClick}
+            >
+                País
+            </button>
+            {dropdownState.open && (
+                <div className={style.dropdown}>
+                    <ul>
+                        {paises.map((pais) => (
+                            <li key={pais.idPais} onClick={() => handlePaisSelect(pais.codigoPais)}>
+                                {pais.nomePais}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+        </div>
     );
 }

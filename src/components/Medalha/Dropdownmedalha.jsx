@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 
 import * as style from './Medalhaendpoint.module.css'
 
-export default function Dropdownmedalha() {
+export default function Dropdownmedalha({ onSelectMedalha }) {
     const tiposMedalha = [
         {tipoMedalha: "OURO"},
         {tipoMedalha: "PRATA"},
@@ -27,6 +27,11 @@ export default function Dropdownmedalha() {
     // optionally returning a func in useEffect runs like componentWillUnmount to cleanup
     return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
+
+    const handleMedalhaSelect = (tipoMedalha) => {
+      onSelectMedalha(tipoMedalha); 
+      setDropdownState({ open: false });
+  };
    
     return (
     <div className={style.container} ref={container}>
@@ -42,8 +47,10 @@ export default function Dropdownmedalha() {
              <ul>
              {tiposMedalha.map((medalha) => {
                 return(
-                    <li key={medalha.tipoMedalha}>{medalha.tipoMedalha}</li>
-                );                
+                    <li key={medalha.tipoMedalha} onClick={() => handleMedalhaSelect(medalha.tipoMedalha)}>
+                        {medalha.tipoMedalha}
+                    </li>
+                ); 
                 })
             }
              </ul>
