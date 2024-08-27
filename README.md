@@ -12,9 +12,25 @@ A interface do usuário é composta pelos seguintes páginas e componentes:
 
 <h1> Home </h1>
 
-Nessa página, o usuário é apresentado à listagem de *países que possuem alguma medalha cadastrada*, que são ordenados de acordo com a quantidade de medalhas que cada um possui. O componente de cada país conta com um botão `Detalhar`, responsável por direcionar o usuário a uma página que contém os detalhes das medalhas desse país. São as páginas `Pais`, discutidas na próxima sessão.
+Nessa página, é apresentada ao usuário uma tabela com a listagem de *países que possuam pelo menos uma medalha cadastrada*, ordenados pela quantidade de medalhas. Cada país é apresentado em uma linha da tabela, e conta com um botão `Detalhar`, responsável por direcionar o usuário a uma página que contém os detalhes de suas medalhas. São as páginas `Pais`, discutidas na próxima sessão.
 
 
 <h1>Pais</h1>
 
-Nessa página, é apresentado ao usuário uma listagem de todas as medalhas registradas no país em questão. Há também um botão `Seguir`, que ao ser clicado pode executar duas ações diferentes a depender do estado da aplicação: se o usuário não estiver logado no sistema, ele será direcionado à pagina `Login`. Se estiver, sua conta será vinculada ao país, e ele passará a receber um e-mail de notificação, toda vez que uma nova medalha for cadastrada neste país (para mais detalhes sobre essa funcionalidade, ler o README do [back-end dessa aplicação](https://github.com/pedromatos2806/Olympic-table-medal)).
+Nessa página, é apresentado ao usuário uma listagem de todas as medalhas registradas no país em questão. Há também um botão `Seguir`, que pode executar duas ações diferentes ao ser clicado, a depender do estado da aplicação Se o usuário não estiver logado no sistema, ele será direcionado à pagina `Login`. Se estiver, sua conta será vinculada ao país, e ele passará a receber um e-mail de notificação, toda vez que uma nova medalha for cadastrada neste país (para mais detalhes sobre essa funcionalidade, ler o README do [backend dessa aplicação](https://github.com/pedromatos2806/Olympic-table-medal)).
+
+
+<h1>Login</h1>
+
+Aqui, aparecem na tela dois campos para que o usuário insira seu e-mail(que servirá como username) e sua senha. Há também dois botões. O primeiro é o `Entrar`, responsável por efetivar o login. Se as credenciais forem válidas, o usuário será autenticado (pelo [backend](https://github.com/pedromatos2806/Olympic-table-medal)) e terá uma sessão iniciada, sendo em seguida direcionado à `Home`. Caso contrário, recebe um aviso de credenciais inválidas. O outro botão é o `Cadastrar usuário`, que leva o usuário para página `Cadastro`.
+
+<h1>Cadastro</h1>
+
+Semelhante à tela `Login`, são apresentados campos para preenchimento e um botão para submissão dos dados fornecidos. O usuário deve preencher os campos `Nome`, `Email` e  `Senha` para se cadastrar. O cadastro é concluído ao clicar no botão `Cadastrar`. Feito isso, as credenciais serão registradas no banco de dados para que o usuário seja capaz de efetuar login através delas futuramente.
+
+> ##### **IMPORTANTE:** no backend existe um atributo que o usuário recebe ao ser cadastrado, chamado de role(papel/atribuição, em inglês). Esse atributo pode ter dois valores: _USER_ ou _ADMIN_, sendo que um mesmo usuário pode ter ambos. A diferença entre as duas é que o usuário com _ADMIN_ nas credenciais possui algumas autorizações a mais que o usuário que tem apenas _USER_. Por padrão, um novo usuário recebe apenas o role _USER_.
+
+
+<h1>Medalha</h1>
+
+Essa página é reservada para acesso de administradores, usuários comuns não podem acessá-la. Sua finalidade é realizar o cadastro de medalhas no sistema. Essa página contém três componentes do tipo _dropdown_(pode ser traduzido como _lista suspensa_). Através delas, o usuário administrador pode selecionar o tipo de medalha, o esporte e o país. Feito isso, a medalha será cadastrada no banco. Como já mencionado na seção `Pais`, os usuários cadastrados serão notificados via e-mail sobre a nova medalha.
