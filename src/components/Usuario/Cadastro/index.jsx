@@ -6,6 +6,7 @@ import password_icon from '../../../assets/icons8-password-24.png';
 
 import classes from './Cadastro.module.css'
 import api from '../../API';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function CadastroUsuario() {
@@ -36,6 +37,8 @@ export default function CadastroUsuario() {
         //evita que os dados digitados pelo usuário sejam passados para a url
         e.preventDefault();
         await api.post("/usuario", usuario);
+        alert("Cadastro realizado com sucesso!")
+        window.location.href = '/login'
     };
 
   return (
